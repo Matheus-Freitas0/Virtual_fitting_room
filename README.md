@@ -1,16 +1,112 @@
-# React + Vite
+# Virtual Fitting Room - Visualiza AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema de provador virtual que utiliza inteligência artificial para gerar imagens fotorrealistas combinando fotos de pessoas com roupas.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19** - Framework frontend
+- **Material-UI (MUI)** - Componentes de interface
+- **Vite** - Build tool e dev server
+- **Axios** - Cliente HTTP
+- **React Router** - Roteamento
+- **Google Gemini API** - Geração de imagens com IA
 
-## React Compiler
+## 📋 Pré-requisitos
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- Node.js 18+ 
+- npm ou yarn
+- Chave de API do Google Gemini (gratuita no Google AI Studio)
 
-## Expanding the ESLint configuration
+## 🛠️ Instalação
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone o repositório:
+```bash
+git clone <url-do-repositorio>
+cd Virtual_fitting_room
+```
+
+2. Instale as dependências:
+```bash
+npm install
+```
+
+3. Configure a chave da API:
+   - Crie um arquivo `.env` na raiz do projeto
+   - Adicione sua chave:
+   ```
+   VITE_GEMINI_API_KEY=sua_chave_aqui
+   ```
+   - Obtenha sua chave em: https://ai.google.dev/
+
+4. Execute o projeto:
+```bash
+npm run dev
+```
+
+## 📖 Como Usar a API Gratuitamente
+
+Consulte o guia completo em [GEMINI_API_FREE_TIER.md](./GEMINI_API_FREE_TIER.md) para:
+- Configuração da API gratuita
+- Limites do free tier
+- Estratégias para economizar quota
+- Solução de problemas comuns
+
+## 🎯 Funcionalidades
+
+- ✅ Upload de imagens (drag-and-drop ou click)
+- ✅ Preview das imagens antes da geração
+- ✅ Descrição de estilo opcional
+- ✅ Sugestões automáticas de estilo
+- ✅ Geração de prova virtual com IA
+- ✅ Download da imagem gerada
+- ✅ Contador visual de tempo de espera (quando há quota)
+- ✅ Tratamento inteligente de erros
+- ✅ Interface responsiva (mobile e desktop)
+
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── client/
+│   ├── components/      # Componentes reutilizáveis
+│   │   ├── ImageDropzone.jsx
+│   │   └── ResultDisplay.jsx
+│   ├── pages/          # Páginas da aplicação
+│   │   └── VisualizaTryOn.jsx
+│   ├── service/        # Serviços de API
+│   │   └── tryOnService.js
+│   └── utils/          # Utilitários
+│       └── imageUtils.js
+├── theme/              # Tema MUI
+│   └── index.js
+├── App.jsx             # Componente principal com rotas
+└── main.jsx            # Entry point
+```
+
+## 🔧 Scripts Disponíveis
+
+- `npm run dev` - Inicia o servidor de desenvolvimento
+- `npm run build` - Cria build de produção
+- `npm run preview` - Preview do build de produção
+- `npm run lint` - Executa o linter
+
+## 📝 Notas Importantes
+
+- O free tier do Google AI Studio tem limites (60 req/min, 300k tokens/dia)
+- Alguns modelos de geração de imagens podem ter limites mais restritivos
+- O sistema tenta automaticamente modelos alternativos quando um falha
+- Aguarde o tempo de retry quando receber erro de quota
+
+## 📚 Documentação
+
+- [Guia do Free Tier](./GEMINI_API_FREE_TIER.md)
+- [Documentação Gemini API](https://ai.google.dev/gemini-api/docs)
+- [Google AI Studio](https://aistudio.google.com/)
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests.
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
